@@ -16,6 +16,4 @@ def evaluate(data):
     x_transformed = np.array([[x[0], 1] for x in x])
     y_transformed = np.array([[math.log((max_y - y)/(y - min_y))] for y in y])
 
-    beta = ((np.linalg.inv(x_transformed.T @ x_transformed)) @ x_transformed.T) @ y_transformed
-
-    return a, b
+    return ((np.linalg.inv(x_transformed.T @ x_transformed)) @ x_transformed.T) @ y_transformed
