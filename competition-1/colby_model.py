@@ -18,10 +18,4 @@ def evaluate(data):
 
     beta = ((np.linalg.inv(x_transformed.T @ x_transformed)) @ x_transformed.T) @ y_transformed
 
-    a = 0.875 * beta[0][0]
-    b = 0.875 * beta[1][0]
-
-    predictions = [float(min_y + (max_y - min_y) / (1 + math.e ** (a * x + b))) for x in x]
-    rss = sum([(y - prediction) ** 2 for y, prediction in zip(y, predictions)])[0]
-
-    return rss, predictions
+    return a, b
